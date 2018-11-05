@@ -11,7 +11,7 @@ pipeline{
 		stage("init") {
 			steps{
 				script{
-					model_test = load ${WORKSPACE} + "/module/pipeline-demo-module.groovy"
+					model_test = load ${WORKSPACE} + "/pipeline/module/pipeline-demo-module.groovy"
 				}
 			}
 		}
