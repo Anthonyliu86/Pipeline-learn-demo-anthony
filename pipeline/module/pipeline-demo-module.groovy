@@ -8,3 +8,5 @@ def find_files(filetype) {
 		println file.name
 	}
 }
+
+return this;
