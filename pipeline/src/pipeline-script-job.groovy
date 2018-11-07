@@ -12,7 +12,6 @@ pipeline{
 			steps{
 				script{
 					model_test = load env.WORKSPACE + "/pipeline/module/pipeline-demo-module.groovy"
-					println ${WORKSPACE}
 				}
 			}
 		}
