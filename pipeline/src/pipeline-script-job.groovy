@@ -3,7 +3,7 @@ import hudson.model.*;
 println env.JOB_NAME
 println env.BUILD_NUMBER
 println env.WORKSPACE
-
+println ${WORKSPACE}
 pipeline{
 	
 	agent any
