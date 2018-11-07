@@ -17,7 +17,7 @@ def read_json_file(file_path) {
 }
 
 def read_json_file2(json_string) {
-	def propMap = readJSON string : json_string
+	def propMap = readJSON text : json_string
 	propMap.each {
 		println ( it.key + " = " + it.value )
 	}
