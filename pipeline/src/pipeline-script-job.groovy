@@ -3,7 +3,7 @@ import hudson.model.*;
 println env.JOB_NAME
 println env.BUILD_NUMBER
 println env.WORKSPACE
-println ${WORKSPACE}
+
 pipeline{
 	
 	agent any
@@ -12,6 +12,7 @@ pipeline{
 			steps{
 				script{
 					model_test = load env.WORKSPACE + "/pipeline/module/pipeline-demo-module.groovy"
+					println ${WORKSPACE}
 				}
 			}
 		}
