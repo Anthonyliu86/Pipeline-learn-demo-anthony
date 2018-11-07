@@ -22,4 +22,15 @@ def read_json_file2(json_string) {
 		println ( it.key + " = " + it.value )
 	}
 }
+
+def write_json_to_file(input_json, tofile_path) {
+	def input = ''
+	if(input_json.toString().endsWith(".json")) {
+		input = readJSON file : input_json
+	}else {
+		input = input_json
+	}
+	writeJSON file: tofile_path, json: input
+}
+
 return this;
