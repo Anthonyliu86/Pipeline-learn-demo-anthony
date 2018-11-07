@@ -23,7 +23,7 @@ pipeline{
 					println "================================"
 					json_string = '{"NAME":"Anthony","AGE":18,"CITY":"Beijing","GENDER":"male"}'
 					tojson_file = env.WORKSPACE + "/testdata/new_json1.json"
-					model_test.read_json_file2(json_string,tojson_file)
+					model_test.write_json_to_file(json_string,tojson_file)
 				}
 			}
 		}
