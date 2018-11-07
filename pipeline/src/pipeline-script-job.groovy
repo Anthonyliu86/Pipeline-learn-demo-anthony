@@ -20,6 +20,9 @@ pipeline{
 				script{
 					json_file = env.WORKSPACE + "/testdata/test_json.json"
 					model_test.read_json_file(json_file)
+					println "================================"
+					json_string = '{"NAME":"Anthony","AGE":18,"CITY":"Beijing","GENDER":"male"}'
+					model_test.read_json_file2(json_string)
 				}
 			}
 		}
