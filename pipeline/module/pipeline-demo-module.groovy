@@ -9,4 +9,11 @@ def find_files(filetype) {
 	}
 }
 
+def read_json_file(file_path) {
+	def propMap = readJSON file : file_path
+	propMap.each {
+	    println ( it.key + " = " + it.value )
+	}
+}
+
 return this;
