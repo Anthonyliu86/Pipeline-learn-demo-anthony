@@ -15,10 +15,11 @@ pipeline{
 				}
 			}
 		}
-		stage("Test Method") {
+		stage("Parse json") {
 			steps{
 				script{
-					log_files = model_test.find_files('**/*.log')
+					json_file = env.WORKSPACE + "/testdata/test_json.json"
+					model_test.read_json_file(json_file)
 				}
 			}
 		}
