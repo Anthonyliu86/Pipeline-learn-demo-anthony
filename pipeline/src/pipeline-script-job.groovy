@@ -23,6 +23,14 @@ pipeline{
 				}
 			}
 		}
+		stage("touch file") {
+			steps{
+				script{
+					touch_file = env.WORKSPACE + "/testdata/"+ env.BUILD_NUMBER +".log"
+					touch touch_file
+				}
+			}
+		}
 	}
 }
 
