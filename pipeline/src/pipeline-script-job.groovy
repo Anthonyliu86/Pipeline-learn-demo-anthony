@@ -17,13 +17,11 @@ pipeline{
 		stage("write json") {
 			steps{
 				script{
-					json_file = env.WORKSPACE + "/testdata/test_json.json"
-					tojson_file = env.WORKSPACE + "/testdata/new_json.json"
-					model_test.write_json_to_file(json_file,tojson_file)
+					properties_file = env.WORKSPACE + "/testdata/test.properties"
+					model_test.read_properties(properties_file)
 					println "================================"
-					json_string = '{"NAME":"Anthony","AGE":18,"CITY":"Beijing","GENDER":"male"}'
-					tojson_file = env.WORKSPACE + "/testdata/new_json1.json"
-					model_test.write_json_to_file(json_string,tojson_file)
+					properties = [name: 'Anthony', age: 18, city: 'Beijing']
+					model_test.read_properties(properties)
 				}
 			}
 		}
