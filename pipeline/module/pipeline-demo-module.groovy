@@ -28,8 +28,10 @@ def write_json_to_file(input_json, tofile_path) {
 	if(input_json.toString().endsWith(".json")) {
 		input = readJSON file : input_json
 	}else {
-		def jsonOutput = new JsonOutput()
-        def new_json_object = jsonOutput.toJson(input_json)
+	//def jsonOutput = new JsonOutput()
+        //def new_json_object = jsonOutput.toJson(input_json)
+		def jsonSlurper = new JsonSlurper(input_json)
+                def new_json_object = jsonSlurper.parseText
 		input = new_json_object
 	}
 	writeJSON file: tofile_path, json: input
