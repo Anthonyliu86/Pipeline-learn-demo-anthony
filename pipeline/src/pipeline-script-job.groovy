@@ -14,14 +14,12 @@ pipeline{
 				}
 			}
 		}
-		stage("write json") {
+		stage("read properties") {
 			steps{
 				script{
 					properties_file = env.WORKSPACE + "/testdata/test.properties"
 					model_test.read_properties(properties_file)
 					println "================================"
-					properties = [name: 'Anthony', age: 18, city: 'Beijing']
-					model_test.read_properties(properties)
 				}
 			}
 		}
