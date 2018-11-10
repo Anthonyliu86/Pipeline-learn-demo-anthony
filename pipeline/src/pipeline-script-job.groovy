@@ -14,18 +14,12 @@ pipeline{
 				}
 			}
 		}
-		stage("write into yaml file") {
+		stage("deleteDir") {
 			steps{
 				script{
-					def amap = [name: 'Anthony',
-                                age : 18,
-                                city: 'Beijing',
-                                isMale: true
-								]
-					yaml_file = env.WORKSPACE + "/testdata/new.yml"
-					model_test.write_to_yaml(amap, yaml_file)
-					println "the contents of yaml file are: "
-					model_test.read_yaml_file(yaml_file)
+					//crate a directory for test
+					def create_dir_command = "${env.WORKSPACE}+/testdata/testdir"
+					sh '${create_dir_command}'
 				}
 			}
 		}
