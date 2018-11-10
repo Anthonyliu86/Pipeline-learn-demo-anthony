@@ -17,16 +17,13 @@ pipeline{
 		stage("read yaml file") {
 			steps{
 				script{
-					yaml_file = env.WORKSPACE + "/testdata/test.yml"
-					model_test.read_yaml_file(yaml_file)
-					println "=========================="
-					yaml_string = """
-                    age: 18
-                    city: 'Shanghai'
-                    isMale: false
-                    name: 'Lucy'
-                    """
-					model_test.read_yaml_file(yaml_string)
+					def amap = [name: 'Anthony',
+                                age : 18,
+                                city: 'Beijing',
+                                isMale: true
+								]
+					yaml_file = env.WORKSPACE + "/testdata/new.yml"
+					model_test.write_to_yaml(amap, aml_file)
 				}
 			}
 		}

@@ -31,6 +31,23 @@ pipeline{
 				}
 			}
 		}
+		stage("read yaml file") {
+			steps{
+				script{
+					yaml_file = env.WORKSPACE + "/testdata/test.yml"
+					model_test.read_yaml_file(yaml_file)
+					println "=========================="
+					yaml_string = """
+                    age: 18
+                    city: 'Shanghai'
+                    isMale: false
+                    name: 'Lucy'
+                    """
+					model_test.read_yaml_file(yaml_string)
+				}
+			}
+		}
+		
 	}
 }
 
