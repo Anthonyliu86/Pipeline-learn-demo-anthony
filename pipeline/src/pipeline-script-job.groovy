@@ -21,10 +21,10 @@ pipeline{
 					model_test.read_yaml_file(yaml_file)
 					println "=========================="
 					yaml_string = """
+                    age: 18
+                    city: 'Shanghai'
+                    isMale: false
                     name: 'Lucy'
-					age : 18
-					city: 'Shanghai'
-					isMale: false
                     """
 					model_test.read_yaml_file(yaml_string)
 				}
