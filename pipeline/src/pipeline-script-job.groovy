@@ -14,7 +14,7 @@ pipeline{
 				}
 			}
 		}
-		stage("read yaml file") {
+		stage("write into yaml file") {
 			steps{
 				script{
 					def amap = [name: 'Anthony',
@@ -23,7 +23,9 @@ pipeline{
                                 isMale: true
 								]
 					yaml_file = env.WORKSPACE + "/testdata/new.yml"
-					model_test.write_to_yaml(amap, aml_file)
+					model_test.write_to_yaml(amap, yaml_file)
+					println "the contents of yaml file are: "
+					model_test.read_yaml_file(yaml_file)
 				}
 			}
 		}
