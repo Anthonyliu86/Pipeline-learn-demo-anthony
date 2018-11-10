@@ -57,4 +57,8 @@ def read_yaml_file(yaml_file) {
 	 }
 }
 
+def write_to_yaml(map_data, yaml_path) {
+	writeYaml file: yaml_path , data: map_data
+}
+
 return this;
