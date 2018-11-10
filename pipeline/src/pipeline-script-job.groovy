@@ -14,20 +14,11 @@ pipeline{
 				}
 			}
 		}
-		stage("read properties") {
+		stage("read yaml file") {
 			steps{
 				script{
-					properties_file = env.WORKSPACE + "/testdata/test.properties"
-					model_test.read_properties(properties_file)
-					println "================================"
-				}
-			}
-		}
-		stage("touch file") {
-			steps{
-				script{
-					touch_file = env.WORKSPACE + "/testdata/"+ env.BUILD_NUMBER +".log"
-					touch touch_file
+					yaml_file = env.WORKSPACE + "/testdata/test.yml"
+					model_test.read_yaml_file(yaml_file)
 				}
 			}
 		}

@@ -44,4 +44,17 @@ def read_properties(properties_file) {
 	 }
 }
 
+def read_yaml_file(yaml_file) {
+	def datas = ""
+	if(yaml_file.toString().endsWith(".yml")){
+		def datas = readYaml file : yaml_file
+		
+	}else {
+		def datas = readYaml text : yaml_file
+	}
+	datas.each {
+		println ( it.key + " = " + it.value )
+	 }
+}
+
 return this;
