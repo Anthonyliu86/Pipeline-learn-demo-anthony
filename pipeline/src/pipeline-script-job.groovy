@@ -7,16 +7,14 @@ pipeline{
 	
 	agent any
 	stages{
-		stage("dir_echo_error_demo") {
+		stage("fileExists") {
 			steps{
-			    println env.WORKSPACE
-			    dir("${env.WORKSPACE}/testdata"){
-				    sh "pwd"
-			    }
-			    echo ("list all files under current workd directory")
-			    sh("ls -al ${env.WORKSPACE}")
-				echo("some info logs output")
-				error("some error method output")
+			    json_file = "${env.WORKSPACE}/testdata/test_json.json"
+				if(fileExists(json_file) == true) {
+					echo("json file is exists")
+				}else {
+					error("here haven't find json file")
+				}
 			}
 		}
 	}
