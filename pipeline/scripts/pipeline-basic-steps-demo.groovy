@@ -10,7 +10,6 @@ pipeline{
 		stage("deleteDir") {
 			steps{
 				script{
-					//crate a directory for test
 					sh("ls -al ${env.WORKSPACE}")
 					deleteDir()  // clean up current work directory
 					sh("ls -al ${env.WORKSPACE}")

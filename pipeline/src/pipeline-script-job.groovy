@@ -18,6 +18,14 @@ pipeline{
 				}
 			}
 		}
+		stage("dir") {
+			steps{
+				println env.WORKSPACE
+				dir("${env.WORKSPACE}/testdata"){
+					sh "pwd"
+				}
+			}
+		}
 	}
 }
 
