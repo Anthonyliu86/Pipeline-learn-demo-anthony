@@ -16,6 +16,21 @@ pipeline{
 					}else {
 						error("here haven't find json file")
 					}
+					
+					if(isUnix() == true) {
+						echo("this jenkins job running on a linux-like system")
+					}else {
+						error("the jenkins job running on a windows system")
+				    }
+					
+					if(isUnix() == true) {
+						echo("this jenkins job running on a linux-like system")
+					}else {
+						error("the jenkins job running on a windows system")
+				    }
+					sh("pwd")
+					println "==========="
+					println pwd()
 				}
 			}
 		}
