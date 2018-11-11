@@ -23,6 +23,15 @@ pipeline{
 				}
 			}
 		}
+		stage('pwd demo') {
+			step {
+				script{
+					sh("pwd")
+					println "==========="
+					println pwd()
+				}
+			}
+		}
 	}
 }
 
