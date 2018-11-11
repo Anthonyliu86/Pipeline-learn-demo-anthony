@@ -7,19 +7,13 @@ pipeline{
 	
 	agent any
 	stages{
-		stage("init") {
-			steps{
-				script{
-					model_test = load env.WORKSPACE + "/pipeline/module/pipeline-demo-module.groovy"
-				}
-			}
-		}
 		stage("deleteDir") {
 			steps{
 				script{
 					//crate a directory for test
-					def create_dir_command = "${env.WORKSPACE}+/testdata/testdir"
-					sh '${create_dir_command}'
+					sh("ls -al ${env.WORKSPACE}")
+					deleteDir()  // clean up current work directory
+					sh("ls -al ${env.WORKSPACE}")
 				}
 			}
 		}
