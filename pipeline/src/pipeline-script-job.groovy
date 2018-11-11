@@ -7,12 +7,13 @@ pipeline{
 	
 	agent any
 	stages{
-		stage("deleteDir") {
+		stage("dir") {
 			steps{
 				script{
-					//crate a directory for test
+					println env.WORKSPACE
 					sh("ls -al ${env.WORKSPACE}")
-					deleteDir()  // clean up current work directory
+					dir("${env.WORKSPACE}/testdata")
+					deleterDir()
 					sh("ls -al ${env.WORKSPACE}")
 				}
 			}
