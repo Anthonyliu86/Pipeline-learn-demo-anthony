@@ -7,7 +7,7 @@ pipeline{
 	
 	agent any
 	stages{
-		stage("dir") {
+		stage("dir_echo_error_demo") {
 			steps{
 			    println env.WORKSPACE
 			    dir("${env.WORKSPACE}/testdata"){
