@@ -10,7 +10,7 @@ pipeline{
 		stage("init") {
 			steps{
 				script {
-					module_method = load env.WORKSP + "/pipeline/module/pipeline-demo-module.groovy"
+					model_test = load env.WORKSPACE + "/pipeline/module/pipeline-demo-module.groovy"
 					println "1 + 1 = 2"
 				}
 			}
@@ -19,12 +19,12 @@ pipeline{
 	post{
 	    failure {
 	        script {
-	            module_method.send_email_result("Failed","Master","571072220@qq.com,904194906@qq.com")
+	            module_test.send_email_result("Failed","Master","571072220@qq.com,904194906@qq.com")
 	        }
 	    }
 	    success {
 	        script {
-	            module_method.send_email_result("Success","Master","571072220@qq.com,904194906@qq.com")
+	            module_test.send_email_result("Success","Master","571072220@qq.com,904194906@qq.com")
 	        }
 	    }
 	}
