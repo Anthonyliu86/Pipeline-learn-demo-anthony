@@ -93,6 +93,6 @@ def send_email_results(status,GITBranch,to_email_address_list) {
   </div></body></html>
   """
 
-    email body: text, subject: subject,  mimeType: 'text/html', to: to_email_address_list
+    mail body: text, subject: subject,  mimeType: 'text/html', to: to_email_address_list
 }
 return this;
