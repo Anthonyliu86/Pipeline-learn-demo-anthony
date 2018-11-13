@@ -12,7 +12,7 @@ pipeline{
 				script {
 					json_file = "${env.WORKSPACE}/testdata/test_json.json"
 					file_contents = readFile json_file
-					pringln file_contents
+					println file_contents
 				}
 			}
 		}
