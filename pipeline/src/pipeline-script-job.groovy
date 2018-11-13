@@ -24,7 +24,7 @@ pipeline{
 	    }
 	    success {
 	        script {
-	            module_test.send_email_results("Success","Master","571072220@qq.com,904194906@qq.com")
+	            module_test.send_email_results("Success","Master","2048398933@qq.com")
 	        }
 	    }
 	}
