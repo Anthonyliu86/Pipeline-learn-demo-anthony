@@ -7,34 +7,27 @@ pipeline{
 	
 	agent any
 	stages{
-		stage("fileExists") {
+		stage("init") {
 			steps{
 				script {
-					json_file = "${env.WORKSPACE}/testdata/test_json.json"
-					if(fileExists(json_file) == true) {
-						echo("json file is exists")
-					}else {
-						error("here haven't find json file")
-					}
-					
-					if(isUnix() == true) {
-						echo("this jenkins job running on a linux-like system")
-					}else {
-						error("the jenkins job running on a windows system")
-				    }
-					
-					if(isUnix() == true) {
-						echo("this jenkins job running on a linux-like system")
-					}else {
-						error("the jenkins job running on a windows system")
-				    }
-					sh("pwd")
-					println "==========="
-					println pwd()
+					mail to: '571072220@qq.com',
+					cc: '904194906@qq.com',
+					module_method = load env.WORKSP + "/pipeline/module/pipeline-demo-module.groovy"
+					println "1 + 1 = 2"
 				}
 			}
 		}
 	}
+	post{
+	    failure {
+	        scritp {
+	            module_method.send_email_result("Failed","Master","571072220@qq.com,904194906@qq.com")
+	        }
+	    }
+	    success {
+	        scritp {
+	            module_method.send_email_result("Success","Master","571072220@qq.com,904194906@qq.com")
+	        }
+	    }
+	}
 }
-
-
