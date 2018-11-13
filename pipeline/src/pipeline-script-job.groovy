@@ -13,6 +13,7 @@ pipeline{
 					json_file = "/testdata/test_json.json"
 					file_contents = readFile json_file
 					pringln file_contents
+				}
 			}
 		}
 	}
