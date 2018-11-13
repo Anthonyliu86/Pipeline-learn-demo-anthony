@@ -10,22 +10,11 @@ pipeline{
 		stage("init") {
 			steps{
 				script {
-					module_test = load env.WORKSPACE + "/pipeline/module/pipeline-demo-module.groovy"
-					println "1 + 1 = 2"
-				}
+					json_file = "/testdata/test_json.json"
+					file_contents = readFile json_file
+					pringln file_contents
 			}
 		}
 	}
-	post{
-	    failure {
-	        script {
-	            module_test.send_email_results("Failed","Master","571072220@qq.com,904194906@qq.com")
-	        }
-	    }
-	    success {
-	        script {
-	            module_test.send_email_results("Success","Master","2048398933@qq.com")
-	        }
-	    }
-	}
+	
 }
