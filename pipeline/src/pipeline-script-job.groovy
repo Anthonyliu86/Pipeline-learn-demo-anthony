@@ -19,12 +19,12 @@ pipeline{
 	post{
 	    failure {
 	        script {
-	            module_test.send_email_result("Failed","Master","571072220@qq.com,904194906@qq.com")
+	            module_test.send_email_results("Failed","Master","571072220@qq.com,904194906@qq.com")
 	        }
 	    }
 	    success {
 	        script {
-	            module_test.send_email_result("Success","Master","571072220@qq.com,904194906@qq.com")
+	            module_test.send_email_results("Success","Master","571072220@qq.com,904194906@qq.com")
 	        }
 	    }
 	}
