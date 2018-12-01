@@ -26,9 +26,7 @@ pipeline{
 				catchError {
 					fileContents = readFile file: "hello.txt", encoding: "UTF-8"
 					println fileContents
-					step {
-						println "here had met some exections, please check"
-					}
+					step (println "here had met some exections, please check")	
 				}
 			}
 		}
