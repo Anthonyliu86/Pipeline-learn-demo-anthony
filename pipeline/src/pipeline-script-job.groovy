@@ -24,7 +24,7 @@ pipeline{
 		stage("catchError demo") {
 			steps{
 				catchError {
-					fileContents = readFile file: "./hello.txt", encoding: "UTF-8"
+					fileContents = readFile file: "hello.txt", encoding: "UTF-8"
 					println fileContents
 				}
 				script {
