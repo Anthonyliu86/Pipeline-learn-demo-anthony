@@ -11,9 +11,9 @@ pipeline{
 			steps{
 				script {
 					write_file_path = "${env.WORKSPACE}/testdata/write.txt"
-					file_contents = "Hello Anthony!!"
+					file_contents = "Hello Anthony!! 这是一个测试例子"
 					//write into write.txt
-					writeFile write_file_path file_contents
+					writeFile file: write_file_path text: file_contents fileContents
 					// read file and print it out
 					fileContents = readFile write_file_path
 					println fileContents
