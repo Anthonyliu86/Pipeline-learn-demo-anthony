@@ -7,12 +7,16 @@ pipeline{
 	
 	agent any
 	stages{
-		stage("init") {
+		stage("writeFile demo") {
 			steps{
 				script {
-					json_file = "${env.WORKSPACE}/testdata/test_json.json"
-					file_contents = readFile json_file
-					println file_contents
+					write_file_path = "${env.WORKSPACE}/testdata/write.txt"
+					file_contents = "Hello Anthony!!"
+					//write into write.txt
+					writeFile write_file_path file_contents
+					// read file and print it out
+					fileContents = readFile write_file_path
+					println fileContents
 				}
 			}
 		}
