@@ -13,7 +13,7 @@ pipeline{
 					write_file_path = "${env.WORKSPACE}/testdata/write.txt"
 					file_contents = "Hello Anthony!! 这是一个测试例子"
 					//write into write.txt
-					writeFile file: write_file_path text: file_contents fileContents encoding: "UTF-8"
+					writeFile file: write_file_path, text: file_contents fileContents, encoding: "UTF-8"
 					// read file and print it out
 					fileContents = readFile write_file_path
 					println fileContents
