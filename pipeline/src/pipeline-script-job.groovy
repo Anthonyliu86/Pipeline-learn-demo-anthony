@@ -15,7 +15,7 @@ pipeline{
 					//write into write.txt
 					writeFile file: write_file_path, text: file_contents, encoding: "UTF-8"
 					// read file and print it out
-					fileContents = readFile write_file_path
+					fileContents = readFile file: write_file_path, encoding: "UTF-8"
 					println fileContents
 				}
 			}
