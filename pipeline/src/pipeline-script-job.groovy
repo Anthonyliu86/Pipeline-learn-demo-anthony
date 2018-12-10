@@ -22,9 +22,9 @@ pipeline{
 				script {
 					
 					try{
-					    out = sh(script: "[ -f /tmp/test1/Python-3.7.1.tgz ]  && echo 'true' || echo 'false' ", returnStdout: true)
+					    out = sh(script: "ls /tmp/test ", returnStdout: true).toString().trim()
 					    println out
-					    if(out == "true") {
+					    if(out.contains("Python-3.7.1.tgz")) {
 						    println "file download successfully."
 					    }else {
 							sh("exit 1")
