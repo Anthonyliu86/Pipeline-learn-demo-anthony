@@ -20,7 +20,7 @@ pipeline{
 		stage("Check file download") {
 			steps {
 				script {
-					out = sh(script: "[ -f /tmp/test/Python-3.7.1.tgz]", returnStdout: true)
+					out = sh(script: "[ -f /tmp/test/Python-3.7.1.tgz ]  && echo 'true' || echo 'false' ", returnStdout: true)
 					println out
 				}
 			}
