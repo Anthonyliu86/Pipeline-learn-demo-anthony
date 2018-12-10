@@ -26,7 +26,9 @@ pipeline{
 					    println out
 					    if(out == "true") {
 						    println "file download successfully."
-					    }
+					    }else {
+							sh("exit 1")
+						}
 					} catch(Exception e) {
 						println e
 						error("fond error during check file download.")
