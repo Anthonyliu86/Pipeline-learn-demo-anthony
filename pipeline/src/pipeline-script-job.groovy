@@ -28,7 +28,7 @@ pipeline{
 					    lines = out.tokenize("\n")
 					    for(line in lines) {
 					        if(!line.contains("STARTED")) {
-					             if(line.startWith("ANDROID")){
+					             if(line.startsWith("ANDROID")){
 					                 failure_node_list.add("android")
 					             }else if(line.startsWith("IOS")){
 					                 failure_node_list.add("ios")
