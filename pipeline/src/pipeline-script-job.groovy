@@ -23,20 +23,20 @@ pipeline{
 					
 					try{
 					    failure_node_list = []
-					    out = sh(script:" ls /tmp/test | grep .status ").toString().trim()
+					    out = sh(script:" ls /tmp/test | grep .status ", returnStdout: true).toString().trim()
 					    println out
 					    lines = out.split("\n")
-					    lines.each { line ->
-					        if(!line.contains("STARTED")) {
-					             if(line.startsWith("ANDROID")){
+					    lines.each { 
+					        if(!it.contains("STARTED")) {
+					             if(it.startsWith("ANDROID")){
 					                 failure_node_list.add("android")
-					             }else if(line.startsWith("IOS")){
+					             }else if(it.startsWith("IOS")){
 					                 failure_node_list.add("ios")
-					             }else if(line.startsWith("DB")){
+					             }else if(it.startsWith("DB")){
 					                 failure_node_list.add("mysql")
-					             }else if(line.startsWith("TOMCAT")){
+					             }else if(it.startsWith("TOMCAT")){
 					                 failure_node_list.add("tomcat")
-					             } else if(line.startsWith("WEB")){
+					             } else if(it.startsWith("WEB")){
 					                 failure_node_list.add("ngix")
 					             }else {
 					                 println "unknow host type."
