@@ -25,7 +25,7 @@ pipeline{
 					    failure_node_list = []
 					    out = sh(script:" ls /tmp/test | grep .status ").toString().trim()
 					    println out
-					    lines = out.tokenize("\n")
+					    lines = out.split("\n")
 					    lines.each { line ->
 					        if(!line.contains("STARTED")) {
 					             if(line.startsWith("ANDROID")){
