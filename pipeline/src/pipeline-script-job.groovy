@@ -30,13 +30,13 @@ pipeline{
 					        if(!line.contains("STARTED")) {
 					             if(line.startWith("ANDROID")){
 					                 failure_node_list.add("android")
-					             }else if(line.startWith("IOS")){
+					             }else if(line.startsWith("IOS")){
 					                 failure_node_list.add("ios")
-					             }else if(line.startWith("DB")){
+					             }else if(line.startsWith("DB")){
 					                 failure_node_list.add("mysql")
-					             }else if(line.startWith("TOMCAT")){
+					             }else if(line.startsWith("TOMCAT")){
 					                 failure_node_list.add("tomcat")
-					             } else if(line.startWith("WEB")){
+					             } else if(line.startsWith("WEB")){
 					                 failure_node_list.add("ngix")
 					             }else {
 					                 println "unknow host type."
