@@ -23,9 +23,9 @@ pipeline{
 					
 					try{
 					    failure_node_list = []
-					    out = sh(script:" ls /tmp/test | grep .status ")
+					    out = sh(script:" ls /tmp/test | grep .status ").toString().trim()
 					    println out
-					    lines = put.tokenize("\n")
+					    lines = out.tokenize("\n")
 					    for(line in lines) {
 					        if(!line.contains("STARTED")) {
 					             if(line.startWith("ANDROID")){
@@ -36,6 +36,8 @@ pipeline{
 					                 failure_node_list.add("mysql")
 					             }else if(line.startWith("TOMCAT")){
 					                 failure_node_list.add("tomcat")
+					             } else if(line.startWith("WEB")){
+					                 failure_node_list.add("ngix")
 					             }else {
 					                 println "unknow host type."
 					             }
@@ -43,6 +45,7 @@ pipeline{
 					        }
 
 					    }
+					    println failure_node_list.toString()
 					    
 					} catch(Exception e) {
 						println e
