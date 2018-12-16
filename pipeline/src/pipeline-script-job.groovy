@@ -17,21 +17,36 @@ pipeline{
 				}
 			}
 		}
-		stage("Check file download") {
+		stage("Get failure node") {
 			steps {
 				script {
 					
 					try{
-					    out = sh(script: "ls /tmp/test ", returnStdout: true).toString().trim()
+					    failure_node_list = []
+					    out = sh(script:" ls | grep .status /tmp/test")
 					    println out
-					    if(out.contains("Python-3.7.1.tgz")) {
-						    println "file download successfully."
-					    }else {
-							sh("exit 1")
-						}
+					    lines = put.tokenize("\n")
+					    for(line in lines) {
+					        if(!line.contains("STARTED")) {
+					             if(line.startWith("ANDROID")){
+					                 failure_node_list.add("android")
+					             }else if(line.startWith("IOS")){
+					                 failure_node_list.add("ios")
+					             }else if(line.startWith("DB")){
+					                 failure_node_list.add("mysql")
+					             }else if(line.startWith("TOMCAT")){
+					                 failure_node_list.add("tomcat")
+					             }else {
+					                 println "unknow host type."
+					             }
+
+					        }
+
+					    }
+					    
 					} catch(Exception e) {
 						println e
-						error("fond error during check file download.")
+						error("fond error during get failure node.")
 					}
 				}
 			}
