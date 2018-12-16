@@ -23,7 +23,7 @@ pipeline{
 					
 					try{
 					    failure_node_list = []
-					    out = sh(script:" ls | grep .status /tmp/test")
+					    out = sh(script:" ls /tmp/test | grep .status ")
 					    println out
 					    lines = put.tokenize("\n")
 					    for(line in lines) {
