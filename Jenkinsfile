@@ -6,7 +6,8 @@ pipeline {
         stage('Build') { 
             steps {
                 println "Build" 
-                println TwoNumberAdd 3, 5
+                result =  TwoNumberAdd 3, 5
+                println result
             }
         }
         stage('Test') { 
