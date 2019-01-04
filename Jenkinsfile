@@ -1,4 +1,4 @@
-
+@Library('anthony_share_lib') _
 
 pipeline {
     agent any 
@@ -6,6 +6,7 @@ pipeline {
         stage('Build') { 
             steps {
                 println "Build" 
+                println TwoNumberAdd 3, 5
             }
         }
         stage('Test') { 
