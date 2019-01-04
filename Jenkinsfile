@@ -5,9 +5,11 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                println "Build" 
-                result =  TwoNumberAdd 3, 5
-                println result
+                script{
+                    println "Build" 
+                    def result =  TwoNumberAdd 3, 5
+                    println result
+                }
             }
         }
         stage('Test') { 
